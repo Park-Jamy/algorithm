@@ -23,6 +23,8 @@
 //        k	dungeons	result
 //        80	[[80,20],[50,40],[30,10]]	3
 
+import java.util.*;
+import java.lang.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -94,6 +96,24 @@ class Solution {
 
 class Solution {
 
+    public int solution(String[][] clothes) {
+        int answer = 1;
+        int clothesLen = clothes.length;
+        Map<String, Integer> typeCount = new HashMap<String, Integer>();
+
+        for(int i = 0; i < clothesLen; i++){
+            typeCount.put(clothes[i][1], typeCount.getOrDefault(clothes[i][1], 0) + 1);
+        }
+
+        for(String key : typeCount.keySet()){
+            answer *= (typeCount.get(key)+1);
+        }
+
+        return answer - 1;
+    }
+}
+
+class Colu {
     public int solution(String[][] clothes) {
         int answer = 1;
         int clothesLen = clothes.length;
